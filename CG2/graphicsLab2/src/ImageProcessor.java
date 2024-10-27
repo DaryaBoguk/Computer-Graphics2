@@ -31,7 +31,6 @@ public class ImageProcessor {
         buttonPanel.setLayout(new GridLayout(0, 1, 10, 10));
         frame.getContentPane().add(buttonPanel, BorderLayout.EAST);
 
-        // Buttons
         JButton openImageBtn = new JButton("Open Image");
         openImageBtn.addActionListener(new ActionListener() {
             @Override
@@ -319,10 +318,8 @@ public class ImageProcessor {
             }
         }
 
-        // Display the updated image
         displayImage(processedImage);
 
-        // Show the new histogram
         showHistogram();
     }
 
@@ -572,11 +569,9 @@ public class ImageProcessor {
         BufferedImage histogramImage = new BufferedImage(histogramWidth, histogramHeight, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = histogramImage.createGraphics();
 
-        // Draw background
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, histogramWidth, histogramHeight);
 
-        // Draw histogram bars
         g.setColor(Color.BLACK);
         for (int i = 0; i < histogram.length; i++) {
             int height = (int) ((double) histogram[i] / max * histogramHeight); // Scale to fit the height
@@ -584,8 +579,6 @@ public class ImageProcessor {
         }
 
         g.dispose();
-
-        // Show the histogram image
         JFrame histogramFrame = new JFrame("Histogram");
         histogramFrame.setSize(600, 300);
         histogramFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Close the histogram frame
